@@ -23,6 +23,7 @@
 	int num01 = Integer.parseInt(request.getParameter("num1"));//100
 	int num02 = Integer.parseInt(request.getParameter("num2"));//200
 %> 
+	<!-- 기존에는 이렇게 썼음:주소쓸때 파라미터값도 써줘야 오류 안남:모르겠으면 controller03 주석 참고 -->
 	id=<%=id %><br>
 	pw=<%=password %><br>
 	name=<%=name %><br>

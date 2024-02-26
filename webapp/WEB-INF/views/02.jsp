@@ -19,7 +19,7 @@
 	\${5*2}-->${5*2}<br>
 	<br>
 	\${ 5/2 }-->${5/2}<br>
-	\${ 5 div 2 }-->${5 div 2}<br>
+	\${ 5 div 2 }-->${5 div 2}<br><!-- 다른 기호로 인식해서 에러난것처럼 보이는데 그냥 냅둬도 된다. -->
 	
 	\${ 5%2 }-->${5%2}<br>
 	\${ 5 mod 2 }-->${5 mod 2}<br>
@@ -66,9 +66,9 @@
 	<br>
 	
 	<h4>null검사</h4>
-	\${str}-->${str}<br>
+	\${str}-->${str}<br><!-- str은 문자가 아닌 변수다!: 근데 정의한적 없음.-> 아무것도 안뿌림 -->
 	\${str == null} --> ${str==null}<br>
-	\${empty str} -->${empty str}<br>
+	\${empty str} -->${empty str}<br><!--  2번째것 보다 이게 더 많이 씀 -->
 	\${empty reqVal} -->${empty reqVal}<br> <!-- 비어있냐고 물어보는건데 Controller에 값을 넣어줬기 떄문에 false라고 나온다. -->
 	\${reqVal} -->${reqVal}<br>
 	

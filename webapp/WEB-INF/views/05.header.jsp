@@ -11,7 +11,7 @@
 	<div id="header" class="clearfix">
 	<%if(authUser !=null){ //로그인성공했을때	%>
 		<ul>
-			<li>황일영 님 안녕하세요^^</li>
+			<li><%=authUser.getName() %> 님 안녕하세요^^</li>
 			<li><a href="/mysite3/user?action=logout" class="btn_s">로그아웃</a></li>
 			<li><a href="/mysite3/user?action=modifyForm" class="btn_s">회원정보수정</a></li>
 		</ul>
@@ -28,7 +28,7 @@
 	%>
 	</div>
 	
-		<p>el 사용</p>
+	<p>el 사용</p>
 
 	<div id="header" class="clearfix">
 	<%if(authUser !=null){ //로그인성공했을때	%>
@@ -52,12 +52,12 @@
 		
 	</div>
 	
-	<p>el(생략) 사용</p>
+	<p>el(scope 생략) 사용</p>
 
 	<div id="header" class="clearfix">
 	<%if(authUser !=null){ //로그인성공했을때	%>
 		<ul>
-			<li>${sessionScope.authUser.name} 님 안녕하세요^^</li>
+			<li>${authUser.name} 님 안녕하세요^^</li>
 			<li><a href="/mysite3/user?action=logout" class="btn_s">로그아웃</a></li>
 			<li><a href="/mysite3/user?action=modifyForm" class="btn_s">회원정보수정</a></li>
 		</ul>
