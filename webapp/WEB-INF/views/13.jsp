@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,69 +19,38 @@
 		List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
 	%>
 	
-	
 	<table border="1">
-	<thead>
-		<tr>
-			<th>번호</th>
-			<th>이름</th>
-			<th>이메일</th>
-			<th>패스워드</th>
-			<th>성별</th>
-		</tr>
-	</thead>
-	<tbody>
-	<%
-		for(int i=0; i<userList.size(); i++){
-	%>
-		<tr>
-			<td><%=userList.get(i).getNo() %></td>
-			<td><%=userList.get(i).getName() %></td>
-			<td><%=userList.get(i).getEmail() %></td>
-			<td><%=userList.get(i).getPassword() %></td>
-			<td><%=userList.get(i).getGender() %></td>
-		</tr>		
-	<%
-		}
-	%>
-	
-
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>패스워드</th>
+				<th>성별</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+		<%
+			for(int i=0; i<userList.size(); i++){
+		%>
+				<tr>
+					<td><%=userList.get(i).getNo()%></td>
+					<td><%=userList.get(i).getName()%></td>
+					<td><%=userList.get(i).getEmail()%></td>
+					<td><%=userList.get(i).getPassword()%></td>
+					<td><%=userList.get(i).getGender()%></td>
+				</tr>
+		<%		
+			}
+		%>
 		
-	</tbody>
-	
-	</table>
-	
-	<table border="1">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>이름</th>
-				<th>이메일</th>
-				<th>패스워드</th>
-				<th>성별</th>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-		for(UserVo vo : userList){
-	%>
-		<tr>
-			<td><%=vo.getNo() %></td>
-			<td><%=vo.getName() %></td>
-			<td><%=vo.getEmail() %></td>
-			<td><%=vo.getPassword() %></td>
-			<td><%=vo.getGender() %></td>
-		</tr>		
-	<%
-		}
-	%>
+		
 		</tbody>
-	
 	</table>
+
+	<br><br>
 	
-	
-	
-	<h4>jstl for문</h4>
 	<table border="1">
 		<thead>
 			<tr>
@@ -92,20 +62,56 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${requestScope.userList }" var="userVo">
+			
+		<%
+			for(UserVo vo : userList){
+		%>
+				<tr>
+					<td><%=vo.getNo()%></td>
+					<td><%=vo.getName()%></td>
+					<td><%=vo.getEmail()%></td>
+					<td><%=vo.getPassword()%></td>
+					<td><%=vo.getGender()%></td>
+				</tr>
+		<%		
+			}
+		%>
+		
+		</tbody>
+	</table>
+
+
+	<h4>jstl for문</h4>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>이름</th>
+				<th>이메일</th>
+				<th>패스워드</th>
+				<th>성별</th>
+			</tr>
+		</thead>
+		<tbody>
+		
+		<c:forEach items="${requestScope.userList}" var="userVo">
 			<tr>
 				<td>${userVo.no}</td>
 				<td>${userVo.name}</td>
 				<td>${userVo.email}</td>
 				<td>${userVo.password}</td>
 				<td>${userVo.gender}</td>
-			</tr>		
+			</tr>
 		</c:forEach>
+		
 		</tbody>
 	</table>
-	
-	
-	<h4>jstl for문(begin end)</h4>
+
+	<br><br>
+
+	<h4>jstl for문(begin end) </h4>
+
 	<table border="1">
 		<thead>
 			<tr>
@@ -119,7 +125,8 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${requestScope.userList }" var="userVo" begin="0" end="12" step="2">
+		
+		<c:forEach items="${requestScope.userList}" var="userVo" begin="0" end="20" step="1" varStatus="status">
 			<tr>
 				<td>${userVo.no}</td>
 				<td>${userVo.name}</td>
@@ -127,10 +134,17 @@
 				<td>${userVo.password}</td>
 				<td>${userVo.gender}</td>
 				<td>${status.index}</td>
-				<td>${status.counter}</td>
-			</tr>		
+				<td>${status.count}</td>
+			</tr>
 		</c:forEach>
+		
 		</tbody>
 	</table>
+
+
+
+
+
+	<br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>
