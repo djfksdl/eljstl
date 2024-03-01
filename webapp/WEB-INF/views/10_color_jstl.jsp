@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<!-- http://localhost:8080/eljstl/10?color=1 -->
 	<p>스클립틀릿 if문</p>
 	${param.color }
+	<!-- param은 생략할 수없다. -->
 	<%
 	if( "1".equals( request.getParameter("color") ) ) {	
 	%>
@@ -32,7 +34,7 @@
 	<hr>
 	
 	<p>jstl if문</p>
-
+	<!-- 문자열이든 숫자든 자바문법처럼 상관안하고 '==' 이나 'eq'라고 써주면 됨 ex) param.color eq 1 -->
 	<c:if test="${param.color ==1}" }>
 		<span style="color: red">빨강</span>
 	</c:if>
