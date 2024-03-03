@@ -64,6 +64,8 @@
 		<tbody>
 			
 		<%
+		/*향상된 for문- 끝까지돌릴때 많이씀. 그래서 몇번째가 필요없다*/
+		/*UserVo는 내가 돌 자료형이고 vo는 내가 지어준 이름임*/
 			for(UserVo vo : userList){
 		%>
 				<tr>
@@ -95,6 +97,7 @@
 		</thead>
 		<tbody>
 		
+		<!-- 향상된 for문과 같지만 var에서는 내가 돌 값인데 자료형을 써주는게 아닌 키값을 적어주면 되서 내가 정한 이름 아무거나 써도됨!주소는 알아서 담아줌 -->
 		<c:forEach items="${requestScope.userList}" var="userVo">
 			<tr>
 				<td>${userVo.no}</td>
